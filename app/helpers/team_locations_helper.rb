@@ -1,0 +1,2 @@
+module TeamLocationsHelper
+end

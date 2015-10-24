@@ -44,6 +44,21 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
+  # Production deployment
+  gem 'capistrano', '~> 3.4'
+  gem 'capistrano-bundler', '~> 1.1.4'
+  gem 'capistrano-rails', '~> 1.1.3'
+  gem 'capistrano-secrets-yml', '~> 1.0.0'
+  gem 'capistrano-rails-console'
+  gem 'capistrano-rails-tail-log'
+  # Add this if you're using rbenv
+  # gem 'capistrano-rbenv', github: 'capistrano/rbenv'
+  # Add this if you're using rvm
+  gem 'capistrano-rvm', github: 'capistrano/rvm'
+
+  # database visualization
+  gem 'rails-erd' 
+  
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end

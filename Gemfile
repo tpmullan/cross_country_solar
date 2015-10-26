@@ -63,3 +63,13 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  #database
+  gem 'pg', '~> 0.18.3'
+  
+  #heroku required gems
+  # gem 'rails_12factor', '0.0.3'
+  
+end
+
+

@@ -4,7 +4,7 @@ class TeamLocationsController < ApplicationController
   # GET /team_locations
   # GET /team_locations.json
   def index
-    @team_locations = TeamLocation.all
+    @team_locations = TeamLocation.order( created_at: :asc).limit(25)
   end
 
   # GET /team_locations/1

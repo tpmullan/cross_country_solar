@@ -58,6 +58,8 @@ group :development do
   # Add this if you're using rvm
   gem 'capistrano-rvm', github: 'capistrano/rvm'
 
+  gem "airbrussh", :require => false
+
   # database visualization
   gem 'rails-erd' 
   

@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    @team_locations = @team.team_locations.order( created_at: :desc).paginate(:page => params[:page], :per_page => 30)
   end
 
   # GET /teams/new

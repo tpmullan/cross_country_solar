@@ -14,7 +14,7 @@ $(document).ready ->
 
 getMarkers = (handler) ->
   $.ajax
-    url: "/team_locations.json"
+    url: "/team_locations.json#{window.location.search}"
     type: 'GET'
     success: (result) ->
       markers = handler.addMarkers(result)

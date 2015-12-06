@@ -36,6 +36,7 @@
   </tbody>
 </table>
 
+<%= will_paginate @team_locations, renderer: BootstrapPagination::Rails %>
 <br>
 
 <%= link_to 'New Team location', new_team_location_path %>

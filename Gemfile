@@ -24,7 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
  
 gem 'gmaps4rails'
 gem 'underscore-rails'
-
+gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
 gem 'geocoder'
 
 # Use ActiveModel has_secure_password

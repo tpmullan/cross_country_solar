@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 #source 'https://nexus.kdc.capitalone.com/mother/content/repositories/rubygems.org/'
-ruby '2.1.1'
+ruby '2.2.4'
 
 gem 'rails', '4.2.4'
 gem 'sass-rails', '~> 5.0'

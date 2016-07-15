@@ -1,10 +1,12 @@
 class TeamLocationsController < ApplicationController
   before_action :set_team_location, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index]
 
   # GET /team_locations
   # GET /team_locations.json
   def index
     @team_locations = TeamLocation.order( created_at: :desc).paginate(:page => params[:page], :per_page => 30)
+    render layout: "map"
   end
 
   # GET /team_locations/1

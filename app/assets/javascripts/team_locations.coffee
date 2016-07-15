@@ -9,20 +9,24 @@ $(document).ready ->
       provider: null
       internal: id: 'map'
     }, ->
-      getMarkers(handler) 
+      getMarkers(handler)
       return
-
+    
 getMarkers = (handler) ->
-  $.ajax
-    url: "/team_locations.json#{window.location.search}"
-    type: 'GET'
-    success: (result) ->
-      markers = handler.addMarkers(result)
-      handler.bounds.extendWith markers
-      handler.fitMapToBounds()
-      return
-    error: (result) ->
-      errorNotice 'Failed to load map.'
-      return
-  return
+  load_points = ->
+    $.ajax
+      url: "/team_locations.json#{window.location.search}"
+      type: 'GET'
+      success: (result) ->
+        markers = handler.addMarkers(result)
+        handler.bounds.extendWith markers
+        handler.fitMapToBounds()
+        return
+      error: (result) ->
+        errorNotice 'Failed to load map.'
+        return
+    return
+
+  load_points()
+  setInterval load_points, 60000
  

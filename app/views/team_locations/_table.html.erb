@@ -7,10 +7,10 @@
     </thead>
 
     <tbody>
-      <% @team_locations.each do |team_location| %>
+      <% @teams.each do |team| %>
         <tr>
-          <td width="15%"><%= team_location.team.try(:number) %></td>
-          <td width="85%"><%= team_location.team.try(:name) %></td>
+          <td width="15%"><%= team.try(:number) %></td>
+          <td width="85%"><%= team.try(:name) %></td>
         </tr>
       <% end %>
     </tbody>

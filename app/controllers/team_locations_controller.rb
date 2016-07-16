@@ -1,6 +1,6 @@
 class TeamLocationsController < ApplicationController
   before_action :set_team_location, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :create, :update]
 
   # GET /team_locations
   # GET /team_locations.json

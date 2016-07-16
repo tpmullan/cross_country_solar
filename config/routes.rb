@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :teams
 
   # You can have the root of your site routed with "root"
-  root 'teams#index'
+  root 'team_locations#index'
 
 end

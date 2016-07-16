@@ -1,6 +1,7 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+@markers = null
 
 $(document).ready ->
   if $('#map').size() > 0
@@ -18,12 +19,13 @@ getMarkers = (handler) ->
       url: "/team_locations.json#{window.location.search}"
       type: 'GET'
       success: (result) ->
-        markers = handler.addMarkers(result)
-        handler.bounds.extendWith markers
+        handler.removeMarkers(@markers) if @markers != null
+        @markers = handler.addMarkers(result)
+        handler.bounds.extendWith @markers
         handler.fitMapToBounds()
         return
       error: (result) ->
-        errorNotice 'Failed to load map.'
+        console.log 'Failed to load map.'
         return
     return
 

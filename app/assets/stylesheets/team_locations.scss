@@ -1,3 +1,23 @@
 // Place all the styles related to the team_locations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.disableScroll{
+  overflow:hidden;
+  overflow-y:hidden;
+  overflow-x:hidden;
+}
+
+.noMargins {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.maxHeight {
+  height: 100vh;
+  margin-top: -10px;
+}
+
+.enableScroll {
+  overflow:auto;
+}

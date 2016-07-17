@@ -5,7 +5,7 @@ class TeamLocationsController < ApplicationController
   # GET /team_locations
   # GET /team_locations.json
   def index
-    @team_locations = TeamLocation.order( created_at: :desc).paginate(:page => params[:page], :per_page => 30)
+    @team_locations = TeamLocation.joins(:team).order( "teams.number").paginate(:page => params[:page], :per_page => 30)
     @teams = Team.order( :number )
     render layout: "map"
   end

@@ -8,9 +8,9 @@
 
     <tbody>
       <% @teams.each do |team| %>
-        <tr>
-          <td width="15%"><%= team.try(:number) %></td>
-          <td width="85%"><%= team.try(:name) %></td>
+        <tr class="team_row" data-number=<%= team.number %>>
+          <td width="15%"><%= team.number %></td>
+          <td width="85%"><%= team.name %></td>
         </tr>
       <% end %>
     </tbody>

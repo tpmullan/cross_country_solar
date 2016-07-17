@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 markers = null
+handler = null
 
 $(document).ready ->
   if $('#map').size() > 0
@@ -26,6 +27,7 @@ getMarkers = (handler) ->
         handler.removeMarkers(markers) if markers != null
         markers = handler.addMarkers(result)
         zoomMap(handler)
+        addClickToMarkers(markers)
         return
       error: (result) ->
         console.log 'Failed to load map.'
@@ -38,3 +40,21 @@ getMarkers = (handler) ->
 zoomMap = (handler) ->
   handler.bounds.extendWith markers
   handler.fitMapToBounds()
+
+bindToMarker = ($item, marker) ->
+  if marker != null && marker != undefined
+    $item.on 'click', ->
+      handler.getMap().setZoom 14
+      marker.setMap handler.getMap()
+      #because clusterer removes map property from marker
+      marker.panTo()
+      google.maps.event.trigger marker.getServiceObject(), 'click'
+      return
+  return
+
+addClickToMarkers = (markers) ->
+  _.each $(".team_row"), (row) ->
+    $row = $(row)
+    bindToMarker $row, markers[$row.data("number") - 1]
+    return
+  return

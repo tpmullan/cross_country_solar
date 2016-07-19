@@ -11,11 +11,8 @@ $(document).ready ->
       provider: null
       internal: id: 'map'
     }, ->
-      handler.addKml url: "https://www.google.com/maps/d/kml?mid=1eeJmQ-nJxJTALLWrpEiyK2TBhfU&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en"
+      handler.addKml url: "https://www.google.com/maps/d/kml?mid=1n8PFGqZMpnYz8NKuSTcu_8sBRhk&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en"
       getMarkers(handler)
-      setTimeout (->
-        zoomMap(handler)
-      ), 750
       return
     
 getMarkers = (handler) ->
@@ -24,9 +21,12 @@ getMarkers = (handler) ->
       url: "/team_locations.json#{window.location.search}"
       type: 'GET'
       success: (result) ->
-        handler.removeMarkers(markers) if markers != null
-        markers = handler.addMarkers(result)
-        zoomMap(handler)
+        if markers
+          handler.removeMarkers(markers)
+          markers = _.extend markers, handler.addMarkers(result)
+        else
+          markers = handler.addMarkers(result)
+        #zoomMap(handler)
         addClickToMarkers(markers)
         return
       error: (result) ->
